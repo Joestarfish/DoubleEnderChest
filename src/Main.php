@@ -7,8 +7,6 @@ namespace Joestarfish\DoubleEnderChest;
 use muqsit\invmenu\inventory\InvMenuInventory;
 use muqsit\invmenu\InvMenu;
 use muqsit\invmenu\InvMenuHandler;
-use muqsit\invmenu\transaction\InvMenuTransaction;
-use muqsit\invmenu\transaction\InvMenuTransactionResult;
 use pocketmine\block\tile\EnderChest;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
@@ -28,6 +26,13 @@ class Main extends PluginBase implements Listener {
 	private array $players_second_ender_inventories = [];
 
 	public function onEnable(): void {
+		if (!$this->areVirionsLoaded()) {
+			$this->getServer()
+				->getPluginManager()
+				->disablePlugin($this);
+			return;
+		}
+
 		if (!InvMenuHandler::isRegistered()) {
 			InvMenuHandler::register($this);
 		}
@@ -222,5 +227,16 @@ class Main extends PluginBase implements Listener {
 				unset($this->players_second_ender_inventories[$name]);
 			},
 		);
+	}
+
+	private function areVirionsLoaded(): bool {
+		if (!class_exists(libasynql::class) || !class_exists(InvMenu::class)) {
+			$this->getLogger()->alert(
+				'Please download this plugin as a phar file from https://poggit.pmmp.io/p/DoubleEnderChest',
+			);
+			return false;
+		}
+
+		return true;
 	}
 }
