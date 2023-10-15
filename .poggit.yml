@@ -1,0 +1,13 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Joestarfish/DoubleEnderChest
+build-by-default: true
+branches:
+- main
+projects:
+  DoubleEnderChest:
+    path: ""
+    libs:
+      - src: poggit/libasynql/libasynql
+        version: ^4.2.0
+      - src: Muqsit/InvMenu/InvMenu
+        version: ^4.6.5
+...
