@@ -87,6 +87,10 @@ class Main extends PluginBase implements Listener {
 		$player = $event->getPlayer();
 		$name = $player->getName();
 
+		if (!$player->hasPermission('double_ender_chest.access')) {
+			return;
+		}
+
 		// This allows the player to either place a block on one of the sides of the Ender Chest OR open the default Ender Chest if no item is held
 		if ($player->isSneaking()) {
 			return;

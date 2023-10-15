@@ -4,3 +4,7 @@ version: 1.0.0
 main: Joestarfish\DoubleEnderChest\Main
 api: 5.0.0
 src-namespace-prefix: Joestarfish\DoubleEnderChest
+permissions:
+  double_ender_chest.access:
+    description: "Allows the player to use the Double Ender Chest feature"
+    default: op
