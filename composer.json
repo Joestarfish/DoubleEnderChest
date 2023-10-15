@@ -1,0 +1,23 @@
+{
+	"name": "joestarfish/double-ender-chest",
+	"description": "A PMMP plugin that doubles the size of the Ender Chest",
+	"type": "project",
+	"license": "MIT",
+	"require": {
+		"muqsit/invmenu": "^4.6",
+		"sof3/libasynql": "^4.2"
+	},
+	"require-dev": {
+		"pocketmine/pocketmine-mp": "^5.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"Joestarfish\\FakePearl\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "Joestarfish"
+		}
+	]
+}
